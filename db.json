@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "contacts": [
+    {
+      "firstName": "Igor",
+      "lastName": "Petrov",
+      "email": "vansol95@mail.ru",
+      "phone": "+38 (066) 5255863",
+      "id": 1659184408089
+    },
+    {
+      "firstName": "Ivan",
+      "lastName": "Koval",
+      "email": "morfem95@gmail.com",
+      "phone": "+38 (066) 5255863",
+      "id": 1659184468058
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
