@@ -15,16 +15,16 @@ export default function toContactReucer(state = initialState,{type, payload}) {
 
    switch(type){
 
-       case GET_CONTACT: return {...state, contacts: payload, selectedContact:createEmptyContact()}
-       case ADD_NEW_CONTACT: return {...state, selectedContact:createEmptyContact()}
+       case GET_CONTACT: return {...state, contacts: payload, selectedContact:createEmptyContact()};
+       case ADD_NEW_CONTACT: return {...state, selectedContact:createEmptyContact()};
        case DELETE_CONTACT: return {...state, contacts: state.contacts
-           .filter((contact)=> contact.id !==payload), selectedContact:createEmptyContact()}
+           .filter((contact)=> contact.id !==payload), selectedContact:createEmptyContact()};
        case UPDATE_CONTACT: return {...state, contacts: state.contacts
            .map((contact)=> contact.id !== payload.id ? contact : payload),
-           selectedContact:createEmptyContact()}
-       case CREATE_CONTACT: return{...state, contacts: [...state.contacts, payload]}
+           selectedContact:createEmptyContact()};
+       case CREATE_CONTACT: return{...state, contacts: [...state.contacts, payload], selectedContact: createEmptyContact()};
        case SELECT_CONTACT: return{...state, selectedContact:payload}
-       default:return state
+       default:return state;
         
    }   
 }

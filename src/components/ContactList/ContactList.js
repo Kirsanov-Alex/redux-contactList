@@ -9,8 +9,9 @@ function ContactList({contacts,getContact, addNewContact,selectContact, deleteCo
 
 	useEffect(() => {
 		contactService.get('/')
-		.then(({data}) => getContact(data))
-    .catch(({statusText}) => console.log(statusText))
+		.then(({data}) => {getContact(data)}
+    )
+    .catch(error => console.log(error))
   }, [getContact])
 
     return (
@@ -32,9 +33,7 @@ function ContactList({contacts,getContact, addNewContact,selectContact, deleteCo
     )
   }
 
-  const mapStateToProps = (contacts) => {
-    return contacts
-  }
+  const mapStateToProps = ({contacts}) => ({contacts});
   
   const mapDispatchToProps = {
     getContact,

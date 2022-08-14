@@ -7,7 +7,7 @@ import { deleteContact,createContact,updateContact } from '../../store/actions/C
 function ContactForm ({
   contactForEdit, onDelete,createContact,updateContact}) {
 
-    const [editContact, setEditContact] = useState(contactForEdit)
+    const [editContact, setEditContact] = useState(contactForEdit);
 
     function createEmptyContact() {
       return {
@@ -19,19 +19,19 @@ function ContactForm ({
     }
   
     const onInputChange = (e) => {
-      setEditContact({...editContact, [e.target.name]: e.target.value})
+      setEditContact({ ...editContact, [e.target.name]: e.target.value})
     };
   
     const onClearField = (e) => {
       const sibling = e.target.parentNode.firstChild;
-      setEditContact({...editContact, [sibling.name]: ''});
+      setEditContact({ ...editContact, [sibling.name]: ''});
     }
   
     const onFormSubmit = (e) => {
       e.preventDefault();
   
       if (!editContact.id){
-        const newContact = {...editContact, id:Date.now()}
+        const newContact = {...editContact, id: Date.now()}
         contactService.post('/',newContact)
         .then(({data}) => {createContact(data)})
         .catch(err =>console.log(err))
@@ -39,7 +39,7 @@ function ContactForm ({
       else {
         contactService.put(`/${editContact.id}`, editContact)
         .then(({data}) => {updateContact(data)})
-        .catch(err =>console.log(err))
+        .catch(err =>console.log(err));
   
       }
       setEditContact(createEmptyContact());

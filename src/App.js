@@ -9,13 +9,13 @@ function App({selectedContact}) {
     <div className="container">
       <div className="content">
         <header>
-          Contact List
+          <h1>Contact List</h1>
         </header>
         <main>
           <ContactList />
           <ContactForm 
                 key={selectedContact.id}
-                onEdit={selectedContact} />
+                contactForEdit={selectedContact} />
         </main>
       </div>
     </div>
