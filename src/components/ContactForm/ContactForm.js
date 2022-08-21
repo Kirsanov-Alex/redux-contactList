@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
-import contactService from '../../api/contact-service';
+import {useDispatch} from 'react-redux';
 import './ContactForm.css'
-import { connect } from 'react-redux';
-import { deleteContact,createContact,updateContact } from '../../store/actions/ContactActions';
+import { deleteContactsAction,createContactAction,updateContactsAction } from '../../store/actions/ContactActions';
 
 function ContactForm ({
-  contactForEdit, onDelete,createContact,updateContact}) {
+  contactForEdit}) {
 
-    const [editContact, setEditContact] = useState(contactForEdit);
+    const dispatch = useDispatch()
+
+    const [editContact, setEditContact] = useState(contactForEdit)
 
     function createEmptyContact() {
       return {
@@ -31,26 +32,19 @@ function ContactForm ({
       e.preventDefault();
   
       if (!editContact.id){
-        const newContact = {...editContact, id: Date.now()}
-        contactService.post('/',newContact)
-        .then(({data}) => {createContact(data)})
-        .catch(err =>console.log(err))
+        editContact.id = Date.now()
+        dispatch(createContactAction(editContact))
       }
       else {
-        contactService.put(`/${editContact.id}`, editContact)
-        .then(({data}) => {updateContact(data)})
-        .catch(err =>console.log(err));
+        dispatch(updateContactsAction(editContact));
   
       }
       setEditContact(createEmptyContact());
     };
   
   
-    const onContactDelete = () => {
-      contactService.delete(`/${(editContact.id)}`)
-      .then(({statusText})=> console.log(statusText))
-      .catch(err => console.log(err))  
-    onDelete((editContact.id))
+    const onContactDelete = () => { 
+    deleteContactsAction((editContact.id))
     }
 
     return (
@@ -120,11 +114,6 @@ function ContactForm ({
     )
   }
   
-  const mapDispatchToProps = {
-    onDelete: deleteContact,
-    createContact,
-    updateContact,
-   };
   
   
-  export default connect(null, mapDispatchToProps)(ContactForm);
+  export default ContactForm;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContactItem.css';
-import contactService from '../../api/contact-service';
+
+
 function ContactItem(
   {contact, onDelete, onEdit}
   ) {
@@ -8,9 +9,6 @@ function ContactItem(
   const onItemDelete = (e) => {
     e.stopPropagation();
     onDelete(contact.id)
-    contactService.delete(`/${(contact.id)}`)
-    .then(({statusText})=> console.log(statusText))
-    .catch(err => console.log(err))  
   }
 
   const onContactEdit = (e) => {

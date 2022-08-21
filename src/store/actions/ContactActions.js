@@ -1,30 +1,12 @@
+import ACTION_TYPES from './actionTypes'
+
 export const ADD_NEW_CONTACT = 'ADD_NEW_CONTACT'
 export const addNewContact=(payload) =>{
     return {
         type: ADD_NEW_CONTACT ,
         payload
     }
-
 }
-
-export const DELETE_CONTACT = 'DELETE_CONTACT'
-export const deleteContact=(payload) =>{
-    return {
-        type: DELETE_CONTACT,
-        payload
-    }
-
-}
-export const CREATE_CONTACT = 'CREATE_CONTACT'
-export const createContact=(payload) =>{
-    return {
-        type: CREATE_CONTACT,
-        payload
-    }
-
-}
-
-
 
 export const SELECT_CONTACT = 'SELECT_CONTACT'
 export const selectContact=(payload) =>{
@@ -32,23 +14,111 @@ export const selectContact=(payload) =>{
         type: SELECT_CONTACT,
         payload
     }
-
 }
-
-export const UPDATE_CONTACT = 'UPDATE_CONTACT'
-export const updateContact=(payload) =>{
+//Getting
+export const getContactsAction = () => { 
     return {
-        type: UPDATE_CONTACT,
+        type: ACTION_TYPES.GET_CONTACTS_ACTION,
+    }
+ }
+
+export const getContactsRequest = () => { 
+    return {
+        type: ACTION_TYPES.GET_CONTACTS_REQUEST,
+    }
+  }
+
+export const getContactsSuccess = (payload) => { 
+    return {
+        type: ACTION_TYPES.GET_CONTACTS_SUCCESS,
         payload
     }
+  }
 
-}
-
-export const GET_CONTACT = 'GET_CONTACT'
-export const getContact=(payload) =>{
+export const getContactsError = (payload) => { 
     return {
-        type: GET_CONTACT,
+        type: ACTION_TYPES.GET_CONTACTS_ERROR,
         payload
     }
+  }
+//Creating
+export const createContactAction = (payload) => { 
+    return {
+        type: ACTION_TYPES.POST_CONTACTS_ACTION,
+        payload
+    }
+ }
 
-}
+export const createContactRequest = () => { 
+    return {
+        type: ACTION_TYPES.POST_CONTACTS_REQUEST,
+    }
+  }
+
+export const createContactSuccess = (payload) => { 
+    return {
+        type: ACTION_TYPES.POST_CONTACTS_SUCCESS,
+        payload
+    }
+  }
+
+export const createContactError = (payload) => { 
+    return {
+        type: ACTION_TYPES.POST_CONTACTS_ERROR,
+        payload
+    }
+  }
+//Update
+export const updateContactsAction = (payload) => { 
+    return {
+        type: ACTION_TYPES.PUT_CONTACTS_ACTION,
+        payload
+    }
+ }
+
+export const updateContactsRequest = () => { 
+    return {
+        type: ACTION_TYPES.PUT_CONTACTS_REQUEST,
+    }
+  }
+
+export const updateContactsSuccess = (payload) => { 
+    return {
+        type: ACTION_TYPES.PUT_CONTACTS_SUCCESS,
+        payload
+    }
+  }
+
+export const updateContactsError = (payload) => { 
+    return {
+        type: ACTION_TYPES.PUT_CONTACTS_ERROR,
+        payload
+    }
+  }
+//Delete
+export const deleteContactsAction = (payload) => { 
+    return {
+        type: ACTION_TYPES.DELETE_CONTACTS_ACTION,
+        payload
+    }
+ }
+
+export const deleteContactsRequest = () => { 
+    return {
+        type: ACTION_TYPES.DELETE_CONTACTS_REQUEST,
+    }
+  }
+
+export const deleteContactsSuccess = (payload) => { 
+    return {
+        type: ACTION_TYPES.DELETE_CONTACTS_SUCCESS,
+        payload
+    }
+  }
+
+export const deleteContactsError = (payload) => { 
+    return {
+        type: ACTION_TYPES.DELETE_CONTACTS_ERROR,
+        payload
+    }
+  }

@@ -1,18 +1,27 @@
 import React, {useEffect} from 'react'
 import ContactItem from '../ContactItem/ContactItem'
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './ContactList.css';
-import contactService from '../../api/contact-service';
-import { getContact, deleteContact,addNewContact,selectContact } from '../../store/actions/ContactActions';
+import { deleteContactsAction, addNewContact,selectContact, getContactsAction} from '../../store/actions/ContactActions';
 
-function ContactList({contacts,getContact, addNewContact,selectContact, deleteContact}){
+function ContactList(){
+
+  const dispatch = useDispatch();
+  const {contacts} = useSelector(state => state);
 
 	useEffect(() => {
-		contactService.get('/')
-		.then(({data}) => {getContact(data)}
-    )
-    .catch(error => console.log(error))
-  }, [getContact])
+		dispatch(getContactsAction())
+  }, [dispatch]);
+
+  const onDelete = (id) => {dispatch(deleteContactsAction(id));
+  }
+
+  const addContact = () => { 
+    dispatch(addNewContact())
+   }
+  
+  const onEdit = (contact) => {
+    dispatch(selectContact(contact))}
 
     return (
       <div className='list-container'>
@@ -22,25 +31,16 @@ function ContactList({contacts,getContact, addNewContact,selectContact, deleteCo
               <ContactItem
               key={contact.id}
               contact={contact}
-              onDelete = {deleteContact}
-              onEdit = {selectContact}
+              onDelete = {onDelete}
+              onEdit = {onEdit}
             />
             )
           })}
         </div>
-        <button onClick={addNewContact}>New</button>
+        <button onClick={addContact}>New</button>
       </div>
     )
   }
 
-  const mapStateToProps = ({contacts}) => ({contacts});
   
-  const mapDispatchToProps = {
-    getContact,
-		addNewContact,
-		selectContact,
-		deleteContact,
-		}
-  
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+  export default ContactList;

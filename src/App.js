@@ -22,9 +22,9 @@ function App({selectedContact}) {
   );
 }
 
-const mapStateToProps = ({selectedContact}) => {
-  return {
-    selectedContact} 
-}
+const mapStateToProps = ({selectedContact}) => ({
+  selectedContact
+})
 
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps) (App);
