@@ -44,7 +44,8 @@ function ContactForm ({
   
   
     const onContactDelete = () => { 
-    deleteContactsAction((editContact.id))
+    deleteContactsAction((editContact.id));
+    setEditContact(createEmptyContact());
     }
 
     return (

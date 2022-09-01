@@ -1,10 +1,9 @@
 import ACTION_TYPES from './actionTypes'
 
 export const ADD_NEW_CONTACT = 'ADD_NEW_CONTACT'
-export const addNewContact=(payload) =>{
+export const addNewContact=() =>{
     return {
-        type: ADD_NEW_CONTACT ,
-        payload
+        type: ADD_NEW_CONTACT 
     }
 }
 
