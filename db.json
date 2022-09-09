@@ -15,7 +15,7 @@
   ],
   "contacts": [
     {
-      "firstName": "Igor",
+      "firstName": "Ignat",
       "lastName": "Petrov",
       "email": "vansol95@mail.ru",
       "phone": "+38 (066) 5255863",
@@ -30,17 +30,10 @@
     },
     {
       "id": 1659184468059,
-      "firstName": "Ivan",
-      "lastName": "Kovalenk",
+      "firstName": "Alex",
+      "lastName": "Kirsanov",
       "email": "morfem95@gmail.com",
       "phone": "+38 (066) 5255863"
-    },
-    {
-      "firstName": "Ivanaa",
-      "lastName": "Kovalgwtg",
-      "email": "vansol95@mail.ru",
-      "phone": "+38 (066) 5255863",
-      "id": 1662039195685
     }
   ],
   "profile": {
